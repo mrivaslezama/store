@@ -1,4 +1,14 @@
 
 [build]
-  command = "npm run build"
+  command = "astro build"
+  functions = "netlify/functions"
   publish = "dist"
+
+[functions]
+  node_bundler = "esbuild"
+
+[plugins]
+  package = "netlify-plugin-cypress"
+
+  [plugins.inputs.postBuild]
+    enable = true
